@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Burnt Caramel. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for BurntFoundation.
 FOUNDATION_EXPORT double BurntFoundationVersionNumber;

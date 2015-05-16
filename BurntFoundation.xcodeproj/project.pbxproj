@@ -12,6 +12,13 @@
 		B20DB2411B073B6500E57532 /* NotificationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20DB21A1B0734D600E57532 /* NotificationObserver.swift */; };
 		B20DB2421B073BAE00E57532 /* ChoiceUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20DB21B1B0734D600E57532 /* ChoiceUserDefaults.swift */; };
 		B20DB2451B073EE000E57532 /* NotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20DB2431B073EDD00E57532 /* NotificationTests.swift */; };
+		B20DB27A1B07480900E57532 /* BurntFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20DB26F1B07480900E57532 /* BurntFoundation.framework */; };
+		B20DB2881B07481000E57532 /* BurntFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B20DB1E41B07338000E57532 /* BurntFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B20DB2891B07481000E57532 /* NotificationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20DB21A1B0734D600E57532 /* NotificationObserver.swift */; };
+		B20DB28A1B07481000E57532 /* ChoiceUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20DB21B1B0734D600E57532 /* ChoiceUserDefaults.swift */; };
+		B20DB28B1B07481600E57532 /* BurntFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B20DB1E41B07338000E57532 /* BurntFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B20DB28C1B07481B00E57532 /* NotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20DB2431B073EDD00E57532 /* NotificationTests.swift */; };
+		B20DB28D1B07481B00E57532 /* UserDefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20DB1F11B07338100E57532 /* UserDefaultsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -21,6 +28,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = B20DB2241B07387100E57532;
 			remoteInfo = "BurntFoundation OS X";
+		};
+		B20DB27B1B07480900E57532 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B20DB1D61B07338000E57532 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B20DB26E1B07480900E57532;
+			remoteInfo = "BurntFoundation iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -32,8 +46,10 @@
 		B20DB21A1B0734D600E57532 /* NotificationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationObserver.swift; sourceTree = "<group>"; };
 		B20DB21B1B0734D600E57532 /* ChoiceUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceUserDefaults.swift; sourceTree = "<group>"; };
 		B20DB2251B07387100E57532 /* BurntFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BurntFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B20DB22F1B07387100E57532 /* BurntFoundation OS XTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BurntFoundation OS XTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B20DB22F1B07387100E57532 /* BurntFoundation OS X Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BurntFoundation OS X Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20DB2431B073EDD00E57532 /* NotificationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTests.swift; sourceTree = "<group>"; };
+		B20DB26F1B07480900E57532 /* BurntFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BurntFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B20DB2791B07480900E57532 /* BurntFoundation iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BurntFoundation iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +65,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B20DB2301B07387100E57532 /* BurntFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B20DB26B1B07480900E57532 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B20DB2761B07480900E57532 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20DB27A1B07480900E57532 /* BurntFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				B20DB2251B07387100E57532 /* BurntFoundation.framework */,
-				B20DB22F1B07387100E57532 /* BurntFoundation OS XTests.xctest */,
+				B20DB22F1B07387100E57532 /* BurntFoundation OS X Tests.xctest */,
+				B20DB26F1B07480900E57532 /* BurntFoundation.framework */,
+				B20DB2791B07480900E57532 /* BurntFoundation iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,8 +114,7 @@
 				B20DB21B1B0734D600E57532 /* ChoiceUserDefaults.swift */,
 				B20DB1E21B07338000E57532 /* Supporting Files */,
 			);
-			name = Source;
-			path = BurntFoundation;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		B20DB1E21B07338000E57532 /* Supporting Files */ = {
@@ -100,8 +132,7 @@
 				B20DB1F11B07338100E57532 /* UserDefaultsTests.swift */,
 				B20DB1EF1B07338100E57532 /* Supporting Files */,
 			);
-			name = Tests;
-			path = BurntFoundationTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		B20DB1EF1B07338100E57532 /* Supporting Files */ = {
@@ -119,6 +150,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20DB28B1B07481600E57532 /* BurntFoundation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B20DB26C1B07480900E57532 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20DB2881B07481000E57532 /* BurntFoundation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +198,43 @@
 			);
 			name = "BurntFoundation OS X Tests";
 			productName = "BurntFoundation OS XTests";
-			productReference = B20DB22F1B07387100E57532 /* BurntFoundation OS XTests.xctest */;
+			productReference = B20DB22F1B07387100E57532 /* BurntFoundation OS X Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B20DB26E1B07480900E57532 /* BurntFoundation iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B20DB2821B07480900E57532 /* Build configuration list for PBXNativeTarget "BurntFoundation iOS" */;
+			buildPhases = (
+				B20DB26A1B07480900E57532 /* Sources */,
+				B20DB26B1B07480900E57532 /* Frameworks */,
+				B20DB26C1B07480900E57532 /* Headers */,
+				B20DB26D1B07480900E57532 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BurntFoundation iOS";
+			productName = "BurntFoundation iOS";
+			productReference = B20DB26F1B07480900E57532 /* BurntFoundation.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B20DB2781B07480900E57532 /* BurntFoundation iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B20DB2851B07480900E57532 /* Build configuration list for PBXNativeTarget "BurntFoundation iOSTests" */;
+			buildPhases = (
+				B20DB2751B07480900E57532 /* Sources */,
+				B20DB2761B07480900E57532 /* Frameworks */,
+				B20DB2771B07480900E57532 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B20DB27C1B07480900E57532 /* PBXTargetDependency */,
+			);
+			name = "BurntFoundation iOSTests";
+			productName = "BurntFoundation iOSTests";
+			productReference = B20DB2791B07480900E57532 /* BurntFoundation iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -174,6 +250,12 @@
 						CreatedOnToolsVersion = 6.3.1;
 					};
 					B20DB22E1B07387100E57532 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					B20DB26E1B07480900E57532 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					B20DB2781B07480900E57532 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
 				};
@@ -192,6 +274,8 @@
 			targets = (
 				B20DB2241B07387100E57532 /* BurntFoundation OS X */,
 				B20DB22E1B07387100E57532 /* BurntFoundation OS X Tests */,
+				B20DB26E1B07480900E57532 /* BurntFoundation iOS */,
+				B20DB2781B07480900E57532 /* BurntFoundation iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -205,6 +289,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B20DB22D1B07387100E57532 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B20DB26D1B07480900E57532 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B20DB2771B07480900E57532 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -232,6 +330,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B20DB26A1B07480900E57532 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20DB2891B07481000E57532 /* NotificationObserver.swift in Sources */,
+				B20DB28A1B07481000E57532 /* ChoiceUserDefaults.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B20DB2751B07480900E57532 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20DB28D1B07481B00E57532 /* UserDefaultsTests.swift in Sources */,
+				B20DB28C1B07481B00E57532 /* NotificationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -239,6 +355,11 @@
 			isa = PBXTargetDependency;
 			target = B20DB2241B07387100E57532 /* BurntFoundation OS X */;
 			targetProxy = B20DB2311B07387100E57532 /* PBXContainerItemProxy */;
+		};
+		B20DB27C1B07480900E57532 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B20DB26E1B07480900E57532 /* BurntFoundation iOS */;
+			targetProxy = B20DB27B1B07480900E57532 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -340,7 +461,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = BurntFoundation/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = BurntFoundation;
@@ -357,7 +478,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = BurntFoundation/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = BurntFoundation;
@@ -377,7 +498,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = BurntFoundationTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -391,9 +512,91 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = BurntFoundationTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B20DB2831B07480900E57532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = BurntFoundation;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B20DB2841B07480900E57532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = BurntFoundation;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B20DB2861B07480900E57532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B20DB2871B07480900E57532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -422,6 +625,22 @@
 			buildConfigurations = (
 				B20DB23C1B07387100E57532 /* Debug */,
 				B20DB23D1B07387100E57532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B20DB2821B07480900E57532 /* Build configuration list for PBXNativeTarget "BurntFoundation iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B20DB2831B07480900E57532 /* Debug */,
+				B20DB2841B07480900E57532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B20DB2851B07480900E57532 /* Build configuration list for PBXNativeTarget "BurntFoundation iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B20DB2861B07480900E57532 /* Debug */,
+				B20DB2871B07480900E57532 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
