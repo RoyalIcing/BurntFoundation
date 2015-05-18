@@ -14,7 +14,7 @@ public class NotificationObserver<NotificationType: RawRepresentable where Notif
 	public let notificationCenter: NSNotificationCenter
 	let operationQueue: NSOperationQueue
 	
-	public var observers = [NotificationType: AnyObject]()
+	var observers = [String: AnyObject]()
 	
 	public init(object: AnyObject, notificationCenter: NSNotificationCenter, queue: NSOperationQueue) {
 		self.object = object
@@ -26,16 +26,24 @@ public class NotificationObserver<NotificationType: RawRepresentable where Notif
 		self.init(object: object, notificationCenter: NSNotificationCenter.defaultCenter(), queue: NSOperationQueue.mainQueue())
 	}
 	
-	public func addObserver(notificationIdentifier: NotificationType, block: (NSNotification!) -> Void) {
-		let observer = notificationCenter.addObserverForName(notificationIdentifier.rawValue, object: object, queue: operationQueue, usingBlock: block)
+	public func addObserver(notificationIdentifier: String, block: (NSNotification!) -> Void) {
+		let observer = notificationCenter.addObserverForName(notificationIdentifier, object: object, queue: operationQueue, usingBlock: block)
 		observers[notificationIdentifier] = observer
 	}
 	
-	public func removeObserver(notificationIdentifier: NotificationType) {
+	public func removeObserver(notificationIdentifier: String) {
 		if let observer: AnyObject = observers[notificationIdentifier] {
 			notificationCenter.removeObserver(observer)
 			observers.removeValueForKey(notificationIdentifier)
 		}
+	}
+	
+	public func addObserver(notificationIdentifier: NotificationType, block: (NSNotification!) -> Void) {
+		addObserver(notificationIdentifier.rawValue, block: block)
+	}
+	
+	public func removeObserver(notificationIdentifier: NotificationType) {
+		removeObserver(notificationIdentifier.rawValue)
 	}
 	
 	public func removeAllObservers() {

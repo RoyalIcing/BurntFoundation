@@ -15,7 +15,9 @@ public protocol UserDefaultsChoiceRepresentable: RawRepresentable {
 
 
 public extension NSUserDefaults {
-	// Int
+	
+	// MARK: Int
+	
 	public func intChoiceWithFallback<T: UserDefaultsChoiceRepresentable where T.RawValue == Int>(fallbackChoice: T) -> T {
 		if let value = T(rawValue: integerForKey(T.defaultsKey)) {
 			return value
@@ -37,7 +39,8 @@ public extension NSUserDefaults {
 			])
 	}
 	
-	// String
+	// MARK: String
+	
 	public func stringChoiceWithFallback<T: UserDefaultsChoiceRepresentable where T.RawValue == String>(fallbackChoice: T) -> T {
 		if let
 			stringValue = stringForKey(T.defaultsKey),
