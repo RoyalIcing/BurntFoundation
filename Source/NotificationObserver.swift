@@ -9,7 +9,7 @@
 import Foundation
 
 
-public class NotificationObserver<NotificationType: RawRepresentable where NotificationType.RawValue == String, NotificationType: Hashable> {
+public class NotificationObserver<NotificationIdentifier: RawRepresentable where NotificationIdentifier.RawValue == String, NotificationIdentifier: Hashable> {
 	public let object: AnyObject
 	public let notificationCenter: NSNotificationCenter
 	let operationQueue: NSOperationQueue
@@ -38,11 +38,11 @@ public class NotificationObserver<NotificationType: RawRepresentable where Notif
 		}
 	}
 	
-	public func addObserver(notificationIdentifier: NotificationType, block: (NSNotification!) -> Void) {
+	public func addObserver(notificationIdentifier: NotificationIdentifier, block: (NSNotification!) -> Void) {
 		addObserver(notificationIdentifier.rawValue, block: block)
 	}
 	
-	public func removeObserver(notificationIdentifier: NotificationType) {
+	public func removeObserver(notificationIdentifier: NotificationIdentifier) {
 		removeObserver(notificationIdentifier.rawValue)
 	}
 	
@@ -61,9 +61,25 @@ public class NotificationObserver<NotificationType: RawRepresentable where Notif
 
 public extension NSNotificationCenter {
 	public func postNotification
-		<NotificationType: RawRepresentable where NotificationType.RawValue == String>
-		(notificationIdentifier: NotificationType, object: AnyObject, userInfo: [String:AnyObject]? = nil)
+		<NotificationIdentifier: RawRepresentable where NotificationIdentifier.RawValue == String>
+		(notificationIdentifier: NotificationIdentifier, object: AnyObject, userInfo: [String:AnyObject]? = nil)
 	{
 		postNotificationName(notificationIdentifier.rawValue, object: object, userInfo: userInfo)
 	}
+}
+
+
+public struct AnyStringNotificationIdentifier: RawRepresentable, Hashable {
+	public typealias RawValue = String
+	public var rawValue: RawValue
+	
+	public init?(rawValue: RawValue) {
+		self.rawValue = rawValue
+	}
+	
+	public var hashValue: Int { return rawValue.hashValue }
+}
+
+public func == (lhs: AnyStringNotificationIdentifier, rhs: AnyStringNotificationIdentifier) -> Bool {
+	return lhs.rawValue == rhs.rawValue
 }
