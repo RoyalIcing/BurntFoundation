@@ -16,14 +16,14 @@ public class NotificationObserver<NotificationIdentifier: RawRepresentable where
 	
 	var observers = [String: AnyObject]()
 	
-	public init(object: AnyObject, notificationCenter: NSNotificationCenter, queue: NSOperationQueue) {
+	public init(object: AnyObject, notificationCenter: NSNotificationCenter, queue: NSOperationQueue = NSOperationQueue.mainQueue()) {
 		self.object = object
 		self.notificationCenter = notificationCenter
 		self.operationQueue = queue
 	}
 	
 	public convenience init(object: AnyObject) {
-		self.init(object: object, notificationCenter: NSNotificationCenter.defaultCenter(), queue: NSOperationQueue.mainQueue())
+		self.init(object: object, notificationCenter: NSNotificationCenter.defaultCenter())
 	}
 	
 	public func addObserver(notificationIdentifier: String, block: (NSNotification!) -> Void) {
