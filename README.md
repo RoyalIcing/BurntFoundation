@@ -62,7 +62,7 @@ notificationObserver.addObserver(.DidUpdate) { notification in
 
 ## Installation
 
-To integrate into your Xcode project using Carthage, specify it in your Cartfile:
+To integrate BurntFoundation into your Xcode project using Carthage, specify it in your Cartfile:
 
 ```
 github "BurntCaramel/BurntFoundation" >= 0.1
