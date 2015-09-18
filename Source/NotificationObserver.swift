@@ -52,7 +52,7 @@ public class NotificationObserver<I: RawRepresentable where I.RawValue == String
 	}
 	
 	public func removeAllObservers() {
-		for (notificationIdentifier, observer) in observers {
+		for (_, observer) in observers {
 			notificationCenter.removeObserver(observer)
 		}
 		observers.removeAll()
