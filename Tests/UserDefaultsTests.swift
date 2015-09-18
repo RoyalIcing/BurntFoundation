@@ -42,7 +42,7 @@ class UserDefaultsTests: XCTestCase {
 		let ud = NSUserDefaults()
 		
 		ud.setInteger(3, forKey: ExampleIntChoice.defaultsKey)
-		XCTAssertEqual(ud.intChoiceWithFallback(ExampleIntChoice.One), .Three, "Set integer, get choice")
+		XCTAssertEqual(ud.intChoiceWithFallback(ExampleIntChoice.One), ExampleIntChoice.Three, "Set integer, get choice")
 		
 		ud.setIntChoice(ExampleIntChoice.Two)
 		XCTAssertEqual(ud.integerForKey(ExampleIntChoice.defaultsKey), 2, "Set choice, get integer")
@@ -52,7 +52,7 @@ class UserDefaultsTests: XCTestCase {
 		let ud = NSUserDefaults()
 		
 		ud.setObject("banana", forKey: ExampleStringChoice.defaultsKey)
-		XCTAssertEqual(ud.stringChoiceWithFallback(ExampleStringChoice.Apple), .Banana, "Set string, get choice")
+		XCTAssertEqual(ud.stringChoiceWithFallback(ExampleStringChoice.Apple), ExampleStringChoice.Banana, "Set string, get choice")
 		
 		ud.setStringChoice(ExampleStringChoice.Carrot)
 		XCTAssertEqual(ud.stringForKey(ExampleStringChoice.defaultsKey)!, "carrot", "Set choice, get string")

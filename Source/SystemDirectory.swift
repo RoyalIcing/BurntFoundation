@@ -9,12 +9,13 @@
 import Foundation
 
 
+
 public class SystemDirectory {
-	public typealias ErrorReceiver = (NSError) -> Void
+	public typealias ErrorReceiver = (NSError) -> ()
 	
 	public let pathComponents: [String]
+	public let directoryBase: NSSearchPathDirectory
 	public let errorReceiver: ErrorReceiver
-	private let directoryURLResolver: (fm: NSFileManager, inout error: NSError?) -> NSURL?
 	private let group: dispatch_group_t
 	private var createdDirectoryURL: NSURL?
 	
@@ -26,54 +27,39 @@ public class SystemDirectory {
 		}
 		
 		self.pathComponents = pathComponents
+		self.directoryBase = directoryBase
 		self.errorReceiver = errorReceiver
-		
-		directoryURLResolver = { (fm, inout error: NSError?) in
-			do {
-				return try fm.URLForDirectory(directoryBase, inDomain:.UserDomainMask, appropriateForURL:nil, create:true)
-			} catch let error1 as NSError {
-				error = error1
-				return nil
-			} catch {
-				fatalError()
-			}
-		}
 		
 		group = dispatch_group_create()
 		
 		createDirectory()
 	}
 	
+	private func directoryURLResolver(fm fm: NSFileManager) throws -> NSURL? {
+		return try fm.URLForDirectory(directoryBase, inDomain:.UserDomainMask, appropriateForURL:nil, create:true)
+	}
+	
 	private func createDirectory() {
 		let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
 		dispatch_group_async(group, queue) {
 			let fm = NSFileManager.defaultManager()
-			var error: NSError?
 			
-			if let directoryURL = self.directoryURLResolver(fm: fm, error: &error) {
+			do {
+				guard let baseDirectoryURL = try self.directoryURLResolver(fm: fm) else { return }
 				
 				// Convert path to its components, so we can add more components
 				// and convert back into a URL.
-				var pathComponents = (directoryURL.pathComponents) as! [String]
-				
-				pathComponents.extend(self.pathComponents)
+				var pathComponents = (baseDirectoryURL.pathComponents)!
+				pathComponents.appendContentsOf(self.pathComponents)
 				
 				// Convert components back into a URL.
-				if let directoryURL = NSURL.fileURLWithPathComponents(pathComponents) {
-					do {
-						try fm.createDirectoryAtURL(directoryURL, withIntermediateDirectories:true, attributes:nil)
-						self.createdDirectoryURL = directoryURL
-						// Return, finishing the dispatch_group_async
-						return
-					} catch var error1 as NSError {
-						error = error1
-					} catch {
-						fatalError()
-					}
-				}
+				guard let directoryURL = NSURL.fileURLWithPathComponents(pathComponents) else { return }
+				
+				try fm.createDirectoryAtURL(directoryURL, withIntermediateDirectories:true, attributes:nil)
+				
+				self.createdDirectoryURL = directoryURL
 			}
-			
-			if let error = error {
+			catch let error as NSError {
 				self.errorReceiver(error)
 			}
 		}
