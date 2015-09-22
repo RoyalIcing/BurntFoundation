@@ -29,7 +29,14 @@ public class SystemDirectory {
 		self.errorReceiver = errorReceiver
 		
 		directoryURLResolver = { (fm, inout error: NSError?) in
-			return fm.URLForDirectory(directoryBase, inDomain:.UserDomainMask, appropriateForURL:nil, create:true, error:&error)
+			do {
+				return try fm.URLForDirectory(directoryBase, inDomain:.UserDomainMask, appropriateForURL:nil, create:true)
+			} catch let error1 as NSError {
+				error = error1
+				return nil
+			} catch {
+				fatalError()
+			}
 		}
 		
 		group = dispatch_group_create()
@@ -53,10 +60,15 @@ public class SystemDirectory {
 				
 				// Convert components back into a URL.
 				if let directoryURL = NSURL.fileURLWithPathComponents(pathComponents) {
-					if fm.createDirectoryAtURL(directoryURL, withIntermediateDirectories:true, attributes:nil, error:&error) {
+					do {
+						try fm.createDirectoryAtURL(directoryURL, withIntermediateDirectories:true, attributes:nil)
 						self.createdDirectoryURL = directoryURL
 						// Return, finishing the dispatch_group_async
 						return
+					} catch var error1 as NSError {
+						error = error1
+					} catch {
+						fatalError()
 					}
 				}
 			}

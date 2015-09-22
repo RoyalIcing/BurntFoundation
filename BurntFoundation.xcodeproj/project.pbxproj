@@ -247,6 +247,7 @@
 		B20DB1D61B07338000E57532 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Burnt Caramel";
 				TargetAttributes = {
@@ -627,6 +628,7 @@
 				B20DB23A1B07387100E57532 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B20DB23B1B07387100E57532 /* Build configuration list for PBXNativeTarget "BurntFoundation OS X Tests" */ = {
 			isa = XCConfigurationList;
@@ -635,6 +637,7 @@
 				B20DB23D1B07387100E57532 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B20DB2821B07480900E57532 /* Build configuration list for PBXNativeTarget "BurntFoundation iOS" */ = {
 			isa = XCConfigurationList;
@@ -643,6 +646,7 @@
 				B20DB2841B07480900E57532 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B20DB2851B07480900E57532 /* Build configuration list for PBXNativeTarget "BurntFoundation iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -651,6 +655,7 @@
 				B20DB2871B07480900E57532 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
