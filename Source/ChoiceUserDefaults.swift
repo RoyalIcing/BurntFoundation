@@ -49,4 +49,19 @@ public extension NSUserDefaults {
 	public func setChoice<T: UserDefaultsChoiceRepresentable where T.RawValue == String>(choice: T) {
 		setObject(choice.rawValue, forKey: T.identifier)
 	}
+	
+	// MARK: Bool
+	
+	public func choice<T: UserDefaultsChoiceRepresentable where T.RawValue == Bool>(choiceType: T.Type) -> T {
+		if let value = T(rawValue: boolForKey(T.identifier)) {
+			return value
+		}
+		else {
+			return T.defaultValue
+		}
+	}
+	
+	public func setChoice<T: UserDefaultsChoiceRepresentable where T.RawValue == Bool>(choice: T) {
+		setBool(choice.rawValue, forKey: T.identifier)
+	}
 }
