@@ -12,7 +12,8 @@ enum ExampleIntChoice: Int, UserDefaultsChoiceRepresentable {
 	case Three = 3
 	
 	// The key that will be used with NSUserDefaults
-	static var defaultsKey: String = "exampleInt"
+	static var identifier: String = "exampleInt"
+	static var defaultValue = ExampleIntChoice.One
 }
 ```
 
@@ -23,7 +24,7 @@ Setting:
 ud.setInteger(3, forKey: "exampleInt")
 
 // After:
-ud.setIntChoice(ExampleIntChoice.Three)
+ud.setChoice(ExampleIntChoice.Three)
 ```
 
 Getting:
@@ -33,7 +34,7 @@ Getting:
 let intValue = ud.integerForKey("exampleInt")
 
 // After:
-let intChoice = ud.intChoiceWithFallback(ExampleIntChoice.One)
+let intChoice = ud.choice(ExampleIntChoice)
 
 ```
 

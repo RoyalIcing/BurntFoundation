@@ -18,9 +18,7 @@ class UserDefaultsTests: XCTestCase {
 		case Three = 3
 		
 		static var identifier: String = "exampleInt"
-		static var defaultValue: ExampleIntChoice {
-			return .One
-		}
+		static var defaultValue = ExampleIntChoice.One
 	}
 	
 	enum ExampleStringChoice: String, UserDefaultsChoiceRepresentable {
@@ -29,9 +27,7 @@ class UserDefaultsTests: XCTestCase {
 		case Carrot = "carrot"
 		
 		static var identifier: String = "exampleString"
-		static var defaultValue: ExampleStringChoice {
-			return .Apple
-		}
+		static var defaultValue = ExampleStringChoice.Apple
 	}
 	
     override func setUp() {
