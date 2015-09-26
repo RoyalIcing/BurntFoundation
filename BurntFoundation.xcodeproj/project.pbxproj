@@ -53,6 +53,7 @@
 		B20DB26F1B07480900E57532 /* BurntFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BurntFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20DB2791B07480900E57532 /* BurntFoundation iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BurntFoundation iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B27F48D21B64F352003F1215 /* SystemDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemDirectory.swift; sourceTree = "<group>"; };
+		B285182E1BB623FB00135E5C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +93,7 @@
 		B20DB1D51B07338000E57532 = {
 			isa = PBXGroup;
 			children = (
+				B285182E1BB623FB00135E5C /* README.md */,
 				B20DB1E11B07338000E57532 /* Source */,
 				B20DB1EE1B07338100E57532 /* Tests */,
 				B20DB1E01B07338000E57532 /* Products */,
