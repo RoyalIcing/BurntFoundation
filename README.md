@@ -56,7 +56,7 @@ class Example {
 
 let example = Example()
 let notificationObserver = NotificationObserver<Example.Notification>(object: example)
-notificationObserver.addObserver(.DidUpdate) { notification in
+notificationObserver.observe(.DidUpdate) { notification in
 	// Observe the notification
 }
 ```
@@ -66,5 +66,5 @@ notificationObserver.addObserver(.DidUpdate) { notification in
 To integrate BurntFoundation into your Xcode project using Carthage, specify it in your Cartfile:
 
 ```
-github "BurntCaramel/BurntFoundation" >= 0.1
+github "BurntCaramel/BurntFoundation" >= 0.3
 ```
