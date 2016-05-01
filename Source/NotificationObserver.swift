@@ -10,8 +10,8 @@ import Foundation
 
 
 public protocol NotificationObserverType {
-	typealias NotificationIdentifier
-	typealias Notification
+	associatedtype NotificationIdentifier
+	associatedtype Notification
 	
 	mutating func observe(notificationIdentifier: NotificationIdentifier, block: (Notification) -> ())
 	mutating func observeAll(block: (NotificationIdentifier, Notification) -> ())
@@ -21,7 +21,9 @@ public protocol NotificationObserverType {
 }
 
 
-public class NotificationObserver<I: RawRepresentable where I.RawValue == String, I: Hashable>: NotificationObserverType {
+public class NotificationObserver
+<I: RawRepresentable where I.RawValue == String, I: Hashable> : NotificationObserverType
+{
 	public typealias NotificationIdentifier = I
 	public typealias Notification = NSNotification!
 	
@@ -89,7 +91,7 @@ public class NotificationObserver<I: RawRepresentable where I.RawValue == String
 
 public extension NSNotificationCenter {
 	public func postNotification
-		<NotificationIdentifier: RawRepresentable where NotificationIdentifier.RawValue == String>
+		<NotificationIdentifier : RawRepresentable where NotificationIdentifier.RawValue == String>
 		(notificationIdentifier: NotificationIdentifier, object: AnyObject, userInfo: [String:AnyObject]? = nil)
 	{
 		postNotificationName(notificationIdentifier.rawValue, object: object, userInfo: userInfo)
@@ -98,7 +100,7 @@ public extension NSNotificationCenter {
 
 
 
-public class AnyNotificationObserver: NotificationObserverType {
+public class AnyNotificationObserver : NotificationObserverType {
 	public typealias NotificationIdentifier = String
 	public typealias Notification = NSNotification!
 	
@@ -119,7 +121,7 @@ public class AnyNotificationObserver: NotificationObserverType {
 		self.init(object: object, notificationCenter: NSNotificationCenter.defaultCenter())
 	}
 	
-	public func observe(notificationIdentifier: NotificationIdentifier, block: (NSNotification!) -> Void) {
+	public func observe(notificationIdentifier: NotificationIdentifier, block: (NSNotification!) -> ()) {
 		underlyingObserver.observe(AnyStringNotificationIdentifier(string: notificationIdentifier), block: block)
 	}
 	
@@ -143,7 +145,7 @@ public class AnyNotificationObserver: NotificationObserverType {
 }
 
 
-private struct AnyStringNotificationIdentifier: RawRepresentable, Hashable {
+private struct AnyStringNotificationIdentifier : RawRepresentable, Hashable {
 	typealias RawValue = String
 	var rawValue: RawValue
 	
