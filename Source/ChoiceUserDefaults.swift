@@ -15,15 +15,15 @@ public protocol UserDefaultsChoiceRepresentable : RawRepresentable {
 }
 
 
-public extension NSUserDefaults {
+public extension UserDefaults {
 	
 	// MARK: Int
 	
 	public func choice
-		<T : UserDefaultsChoiceRepresentable where T.RawValue == Int>
-		(choiceType: T.Type) -> T
+		<T : UserDefaultsChoiceRepresentable>
+		(_ choiceType: T.Type) -> T where T.RawValue == Int
 	{
-		if let value = T(rawValue: integerForKey(T.identifier)) {
+		if let value = T(rawValue: integer(forKey: T.identifier)) {
 			return value
 		}
 		else {
@@ -32,21 +32,21 @@ public extension NSUserDefaults {
 	}
 	
 	public func setChoice
-		<T : UserDefaultsChoiceRepresentable where T.RawValue == Int>
-		(choice: T)
+		<T : UserDefaultsChoiceRepresentable>
+		(_ choice: T) where T.RawValue == Int
 	{
-		setInteger(choice.rawValue, forKey: T.identifier)
+		set(choice.rawValue, forKey: T.identifier)
 	}
 	
 	// MARK: String
 	
 	public func choice
-		<T : UserDefaultsChoiceRepresentable where T.RawValue == String>
-		(choiceType: T.Type) -> T
+		<T : UserDefaultsChoiceRepresentable>
+		(_ choiceType: T.Type) -> T where T.RawValue == String
 	{
 		if let
-			stringValue = stringForKey(T.identifier),
-			value = T(rawValue: stringValue)
+			stringValue = string(forKey: T.identifier),
+			let value = T(rawValue: stringValue)
 		{
 			return value
 		}
@@ -56,19 +56,19 @@ public extension NSUserDefaults {
 	}
 	
 	public func setChoice
-		<T : UserDefaultsChoiceRepresentable where T.RawValue == String>
-		(choice: T)
+		<T : UserDefaultsChoiceRepresentable>
+		(_ choice: T) where T.RawValue == String
 	{
-		setObject(choice.rawValue, forKey: T.identifier)
+		set(choice.rawValue, forKey: T.identifier)
 	}
 	
 	// MARK: Bool
 	
 	public func choice
-		<T : UserDefaultsChoiceRepresentable where T.RawValue == Bool>
-		(choiceType: T.Type) -> T
+		<T : UserDefaultsChoiceRepresentable>
+		(_ choiceType: T.Type) -> T where T.RawValue == Bool
 	{
-		if let value = T(rawValue: boolForKey(T.identifier)) {
+		if let value = T(rawValue: bool(forKey: T.identifier)) {
 			return value
 		}
 		else {
@@ -77,9 +77,9 @@ public extension NSUserDefaults {
 	}
 	
 	public func setChoice
-		<T : UserDefaultsChoiceRepresentable where T.RawValue == Bool>
-		(choice: T)
+		<T : UserDefaultsChoiceRepresentable>
+		(_ choice: T) where T.RawValue == Bool
 	{
-		setBool(choice.rawValue, forKey: T.identifier)
+		set(choice.rawValue, forKey: T.identifier)
 	}
 }
