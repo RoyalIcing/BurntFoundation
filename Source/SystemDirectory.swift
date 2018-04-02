@@ -39,7 +39,7 @@ public class SystemDirectory {
 	}
 	
 	fileprivate func createDirectory() {
-		let queue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low)
+		let queue = DispatchQueue.global(qos: .default)
 		queue.async(group: group) {
 			let fm = FileManager.default
 			
