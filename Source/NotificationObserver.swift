@@ -25,7 +25,7 @@ public class NotificationObserver
 <I: RawRepresentable> : NotificationObserverType where I.RawValue == String, I: Hashable
 {
 	public typealias NotificationIdentifier = I
-	public typealias Notification = Foundation.Notification!
+	public typealias Notification = Foundation.Notification?
 	
 	public let object: AnyObject
 	public let notificationCenter: NotificationCenter
@@ -95,7 +95,7 @@ public extension NotificationCenter {
 		<NotificationIdentifier : RawRepresentable>
 		(_ notificationIdentifier: NotificationIdentifier, object: AnyObject, userInfo: [String:AnyObject]? = nil) where NotificationIdentifier.RawValue == String
 	{
-		post(name: Notification.Name(rawValue: notificationIdentifier.rawValue), object: object, userInfo: userInfo)
+		post(name: Foundation.Notification.Name(rawValue: notificationIdentifier.rawValue), object: object, userInfo: userInfo)
 	}
 }
 
@@ -103,7 +103,7 @@ public extension NotificationCenter {
 
 public class AnyNotificationObserver : NotificationObserverType {
 	public typealias NotificationIdentifier = String
-	public typealias Notification = Foundation.Notification!
+	public typealias Notification = Foundation.Notification?
 	
 	public let object: AnyObject
 	public let notificationCenter: NotificationCenter
@@ -122,7 +122,7 @@ public class AnyNotificationObserver : NotificationObserverType {
 		self.init(object: object, notificationCenter: NotificationCenter.default)
 	}
 	
-	public func observe(_ notificationIdentifier: NotificationIdentifier, block: @escaping (Foundation.Notification!) -> ()) {
+	public func observe(_ notificationIdentifier: NotificationIdentifier, block: @escaping (Foundation.Notification?) -> ()) {
 		underlyingObserver.observe(AnyStringNotificationIdentifier(string: notificationIdentifier), block: block)
 	}
 	

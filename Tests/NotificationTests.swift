@@ -82,7 +82,7 @@ class NotificationTests: XCTestCase {
 		let nc = NotificationCenter.default
 		let object = Example()
 		
-		let expectation = self.expectation(forNotification: Example.Notification.DidUpdate.rawValue, object: object, handler: nil)
+		let expectation = self.expectation(forNotification: NSNotification.Name(rawValue: Example.Notification.DidUpdate.rawValue), object: object, handler: nil)
 		
 		OperationQueue.main.addOperation {
 			withExtendedLifetime(expectation) {
